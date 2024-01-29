@@ -20,6 +20,7 @@ export const GlobalProvider = ({children}) => {
                 setError(err.response.data.message)
             })
         getIncomes()
+        console.log(response);
     }
 
     const getIncomes = async () => {
@@ -31,6 +32,7 @@ export const GlobalProvider = ({children}) => {
     const deleteIncome = async (id) => {
         const res  = await axios.delete(`${BASE_URL}delete-income/${id}`)
         getIncomes()
+        console.log(res);
     }
 
     const totalIncome = () => {
@@ -50,6 +52,7 @@ export const GlobalProvider = ({children}) => {
                 setError(err.response.data.message)
             })
         getExpenses()
+        console.log(response);
     }
 
     const getExpenses = async () => {
@@ -61,6 +64,7 @@ export const GlobalProvider = ({children}) => {
     const deleteExpense = async (id) => {
         const res  = await axios.delete(`${BASE_URL}delete-expense/${id}`)
         getExpenses()
+        console.log(res);
     }
 
     const totalExpenses = () => {
@@ -108,6 +112,8 @@ export const GlobalProvider = ({children}) => {
         </GlobalContext.Provider>
     )
 }
+
+
 
 export const useGlobalContext = () =>{
     return useContext(GlobalContext)
